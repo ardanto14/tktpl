@@ -3,30 +3,31 @@ package com.example.helloworld;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int count = 0;
-
-    TextView txtCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.txtCount = (TextView) findViewById(R.id.textView3);
+        if (savedInstanceState == null) {
+            ListFragment fragment = new ListFragment();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.container, fragment, "ListFragment")
+                    .commit();
+        }
     }
 
-    public void increment(View view) {
-        this.count++;
-        this.txtCount.setText(String.valueOf(count));
+    public void showInfo() {
+        DetailsFragment fragment = new DetailsFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, fragment, "DetailsFragment")
+                .addToBackStack("DetailsFragment")
+                .commit();
     }
 
-    public void decrement(View view) {
-        this.count--;
-        this.txtCount.setText(String.valueOf(count));
-    }
 }
