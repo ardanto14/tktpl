@@ -4,6 +4,13 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
+    externalNativeBuild {
+        cmake {
+            version "3.10.2"
+            path file('CMakeLists.txt')
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.helloworld"
         minSdkVersion 16
@@ -20,6 +27,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    ndkVersion '21.0.6113669'
 }
 
 dependencies {
