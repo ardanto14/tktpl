@@ -52,7 +52,7 @@
     <Button
         android:layout_width="239dp"
         android:layout_height="67dp"
-        android:onClick="increment"
+        android:id="@+id/increment"
         android:text="Increment"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -63,7 +63,7 @@
     <Button
         android:layout_width="239dp"
         android:layout_height="67dp"
-        android:onClick="decrement"
+        android:id="@+id/decrement"
         android:text="Decrement"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
